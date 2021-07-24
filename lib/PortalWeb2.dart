@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:submission/DetailBerita.dart';
 import 'package:submission/model/Berita.dart';
 
 class PortalWeb2 extends StatefulWidget {

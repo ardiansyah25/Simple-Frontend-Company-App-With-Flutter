@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:submission/DetailBerita.dart';
+import 'package:submission/style/style.dart';
 
 class PortalMobile extends StatelessWidget {
-  var covidTextStyle = TextStyle(
-    fontFamily: 'Poppins',
-    fontSize: 14,
-    color: Colors.white,
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,11 +103,11 @@ class PortalMobile extends StatelessWidget {
                               SizedBox(height: 8),
                               Text(
                                 "POSITIF",
-                                style: covidTextStyle,
+                                style: Style().covidTextStyle,
                               ),
                               Text(
                                 "1000",
-                                style: covidTextStyle,
+                                style: Style().covidTextStyle,
                               ),
                             ],
                           )),
@@ -123,11 +118,11 @@ class PortalMobile extends StatelessWidget {
                               SizedBox(height: 8),
                               Text(
                                 "SEMBUH",
-                                style: covidTextStyle,
+                                style: Style().covidTextStyle,
                               ),
                               Text(
                                 "2000",
-                                style: covidTextStyle,
+                                style: Style().covidTextStyle,
                               ),
                             ],
                           )),
@@ -138,11 +133,11 @@ class PortalMobile extends StatelessWidget {
                               SizedBox(height: 8),
                               Text(
                                 "MEINGGAL",
-                                style: covidTextStyle,
+                                style: Style().covidTextStyle,
                               ),
                               Text(
                                 "200",
-                                style: covidTextStyle,
+                                style: Style().covidTextStyle,
                               ),
                             ],
                           ))
