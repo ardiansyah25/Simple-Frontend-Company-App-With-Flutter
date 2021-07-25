@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:submission/PortalMobile.dart';
-import 'package:submission/PortalWeb3.dart';
+import 'package:submission/PortalWeb.dart';
 
 class Portal extends StatelessWidget {
   @override
@@ -9,7 +9,7 @@ class Portal extends StatelessWidget {
       body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth > 425) {
-          return PortalWeb3();
+          return PortalWeb();
         } else {
           return PortalMobile();
         }

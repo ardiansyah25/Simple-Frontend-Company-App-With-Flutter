@@ -1,17 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:submission/DetailBerita.dart';
+import 'package:submission/model/Berita.dart';
 import 'package:submission/style/style.dart';
 
 class PortalWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    List<Widget> berita = [];
+
+    for (var i = 0; i < beritaList.length; i++) {
+      berita.add(
+        Expanded(
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailBerita(
+                  berita: beritaList[i],
+                );
+              }));
+            },
+            child: Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ClipRRect(
+                    child: Image.asset(
+                      beritaList[i].gambar,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      beritaList[i].judul,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     return SingleChildScrollView(
       child: SafeArea(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
             child: Row(
               children: [
                 Text(
@@ -34,7 +82,7 @@ class PortalWeb extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: Colors.indigo),
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsets.all(10),
             padding: EdgeInsets.all(10),
             child: Row(
               children: [
@@ -74,7 +122,7 @@ class PortalWeb extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: Colors.red[900]),
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsets.all(10),
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
@@ -91,57 +139,55 @@ class PortalWeb extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                        flex: 1,
                         child: Column(
-                          children: [
-                            SizedBox(height: 8),
-                            Text(
-                              "POSITIF",
-                              style: Style().covidTextStyle,
-                            ),
-                            Text(
-                              "1000",
-                              style: Style().covidTextStyle,
-                            ),
-                          ],
-                        )),
+                      children: [
+                        SizedBox(height: 8),
+                        Text(
+                          "POSITIF",
+                          style: Style().covidTextStyle,
+                        ),
+                        Text(
+                          "1000",
+                          style: Style().covidTextStyle,
+                        ),
+                      ],
+                    )),
                     Expanded(
-                        flex: 1,
                         child: Column(
-                          children: [
-                            SizedBox(height: 8),
-                            Text(
-                              "SEMBUH",
-                              style: Style().covidTextStyle,
-                            ),
-                            Text(
-                              "2000",
-                              style: Style().covidTextStyle,
-                            ),
-                          ],
-                        )),
+                      children: [
+                        SizedBox(height: 8),
+                        Text(
+                          "SEMBUH",
+                          style: Style().covidTextStyle,
+                        ),
+                        Text(
+                          "2000",
+                          style: Style().covidTextStyle,
+                        ),
+                      ],
+                    )),
                     Expanded(
-                        flex: 1,
                         child: Column(
-                          children: [
-                            SizedBox(height: 8),
-                            Text(
-                              "MEINGGAL",
-                              style: Style().covidTextStyle,
-                            ),
-                            Text(
-                              "200",
-                              style: Style().covidTextStyle,
-                            ),
-                          ],
-                        ))
+                      children: [
+                        SizedBox(height: 8),
+                        Text(
+                          "MEINGGAL",
+                          style: Style().covidTextStyle,
+                        ),
+                        Text(
+                          "200",
+                          style: Style().covidTextStyle,
+                        ),
+                      ],
+                    ))
                   ],
                 )
               ],
             ),
           ),
           Container(
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsetsDirectional.only(start: 10, end: 10),
             child: Row(
               children: [
                 Expanded(
@@ -164,67 +210,35 @@ class PortalWeb extends StatelessWidget {
                     ),
                   ],
                 )),
-                Container(
-                    alignment: Alignment.centerRight,
-                    child: Expanded(
-                        child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Lihat Semua",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 14,
-                            color: Colors.indigo),
-                      ),
-                    ))),
+                Expanded(
+                    child: Container(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Lihat Semua",
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 14,
+                          color: Colors.indigo),
+                    ),
+                  ),
+                )),
               ],
             ),
           ),
           // disini list berita
           Container(
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsetsDirectional.only(start: 10, end: 10),
+            padding: EdgeInsetsDirectional.only(start: 10, end: 10),
             child: Row(
-              children: [
-                Expanded(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return DetailBerita();
-                      }));
-                    },
-                    child: Card(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          ClipRRect(
-                            child: Image.asset('images/1.jpg'),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          SizedBox(height: 8),
-                          Padding(
-                            padding: EdgeInsets.all(5),
-                            child: Text(
-                              'Departemen Pembelian Sambu Group sebagai Ujung Tombak Bisnis Perusahaan',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.justify,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  flex: 1,
-                ),
-              ],
+              children: berita,
             ),
           ),
 
           Container(
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsetsDirectional.only(start: 10, end: 10),
             child: Row(
               children: [
                 Text(
@@ -244,7 +258,8 @@ class PortalWeb extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsetsDirectional.only(start: 10, end: 10),
+            padding: EdgeInsetsDirectional.only(start: 10, end: 10),
             child: Column(
               children: [
                 Row(
@@ -271,7 +286,6 @@ class PortalWeb extends StatelessWidget {
                           ],
                         ),
                       ),
-                      flex: 1,
                     ),
                     Expanded(
                       child: Card(
@@ -295,7 +309,6 @@ class PortalWeb extends StatelessWidget {
                           ],
                         ),
                       ),
-                      flex: 1,
                     ),
                     Expanded(
                       child: Card(
@@ -319,7 +332,6 @@ class PortalWeb extends StatelessWidget {
                           ],
                         ),
                       ),
-                      flex: 1,
                     )
                   ],
                 ),
@@ -347,7 +359,6 @@ class PortalWeb extends StatelessWidget {
                           ],
                         ),
                       ),
-                      flex: 1,
                     ),
                     Expanded(
                       child: Card(
@@ -371,7 +382,6 @@ class PortalWeb extends StatelessWidget {
                           ],
                         ),
                       ),
-                      flex: 1,
                     ),
                     Expanded(
                       child: Card(
@@ -395,7 +405,6 @@ class PortalWeb extends StatelessWidget {
                           ],
                         ),
                       ),
-                      flex: 1,
                     )
                   ],
                 ),

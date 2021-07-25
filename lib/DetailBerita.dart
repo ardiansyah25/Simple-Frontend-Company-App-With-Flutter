@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:submission/DetailBeritaMobile.dart';
+import 'package:submission/DetailBeritaWeb.dart';
+import 'package:submission/model/Berita.dart';
 
-class DetailBerita extends StatefulWidget {
-  @override
-  _DetailBeritaState createState() => _DetailBeritaState();
-}
+class DetailBerita extends StatelessWidget {
+  final Berita berita;
 
-class _DetailBeritaState extends State<DetailBerita> {
+  DetailBerita({required this.berita});
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      if (constraints.maxWidth > 425) {
+        return DetailBeritaWeb(berita: berita);
+      } else {
+        return DetailBeritaMobile(berita: berita);
+      }
+    });
   }
 }
